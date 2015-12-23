@@ -6,7 +6,7 @@ total_comparisons = 0
 # choode index of median element of the three
 def choose_pivot(list, l, r):
     first = l
-    middle = l + ((r - l - 1)/2)
+    middle = (int)(l + ((r - l - 1)/2))
     final = r - 1
     l = [(first, list[first]), (middle, list[middle]), (final, list[final])]
     l = sorted(l, key=lambda val : val[1])
@@ -45,13 +45,13 @@ def qs_start(l):
 # checls whether array is sorted
 def check_sorted(l):
     for x in range(0, len(l) - 1):
-        if (x > l[x + 1]):
+        if (l[x] > l[x + 1]):
             return False;
     return True;
 
-with open('QuickSort.txt') as f:
+with open('data/QuickSort.txt') as f:
     l = f.read().splitlines()
 l = [int(i) for i in l]
 qs_start(l)
-print total_comparisons
-print check_sorted(l)
+print (total_comparisons)
+print (check_sorted(l))
